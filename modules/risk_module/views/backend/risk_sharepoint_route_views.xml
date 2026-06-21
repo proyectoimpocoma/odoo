@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_risk_sharepoint_route_list" model="ir.ui.view">
+        <field name="name">risk.sharepoint.route.list</field>
+        <field name="model">risk.sharepoint.route</field>
+        <field name="arch" type="xml">
+            <list string="Rutas SharePoint" class="risk-sp-route-list">
+                <field name="party" string="Documentos de" widget="badge"
+                       decoration-info="party == 'driver'"
+                       decoration-primary="party == 'owner'"
+                       decoration-success="party == 'vehicle'"
+                       decoration-warning="party == 'semi_trailer'"
+                       decoration-muted="party == 'other'"/>
+                <field name="dest_display" string="Guardar en" readonly="1"/>
+                <field name="route_preview_display" string="Vista previa" readonly="1"/>
+                <field name="folder_template" string="Plantilla de carpeta" optional="hide"/>
+                <field name="filename_template" string="Plantilla de nombre" optional="hide"/>
+                <field name="duplicate_policy_display" string="Duplicados" readonly="1"/>
+                <field name="append_id" string="Evitar duplicados" widget="boolean_toggle"
+                       optional="hide"/>
+                <button name="action_pick_folder" type="object"
+                        string="Elegir carpeta" class="btn-link"
+                        icon="fa-folder-open"/>
+                <field name="active" string="Activo" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_risk_sharepoint_route_form" model="ir.ui.view">
+        <field name="name">risk.sharepoint.route.form</field>
+        <field name="model">risk.sharepoint.route</field>
+        <field name="arch" type="xml">
+            <form string="Ruta SharePoint">
+                <header>
+                    <button name="action_pick_folder" type="object"
+                            string="Elegir carpeta destino" class="btn-primary"
+                            icon="fa-folder-open"/>
+                    <button name="action_clear_folder" type="object"
+                            string="Usar carpeta raíz global"
+                            invisible="not dest_item_id"
+                            confirm="¿Volver a usar la carpeta raíz global para este tipo?"/>
+                </header>
+                <sheet class="risk-sp-route-form">
+                    <widget name="web_ribbon" title="Archivado" bg_color="text-bg-danger"
+                            invisible="active"/>
+                    <div class="risk-sp-route-summary">
+                        <div>
+                            <span class="risk-sp-step-pill">Ruta SharePoint</span>
+                            <h3>
+                                Documentos de <field name="party" readonly="1" nolabel="1"/>
+                            </h3>
+                            <field name="route_preview_display" readonly="1" nolabel="1"
+                                   class="risk-sp-route-preview"/>
+                        </div>
+                        <div class="risk-sp-route-destination">
+                            <span>Guardar en</span>
+                            <field name="dest_display" readonly="1" nolabel="1"/>
+                        </div>
+                    </div>
+                    <group string="Destino en SharePoint">
+                        <field name="party"/>
+                        <field name="active" invisible="1"/>
+                        <field name="dest_drive_id" invisible="1"/>
+                        <field name="dest_item_id" invisible="1"/>
+                        <field name="dest_display" readonly="1"/>
+                        <field name="dest_label" placeholder="Carpeta raíz global (Ajustes)"
+                               invisible="not dest_label"/>
+                        <button name="action_pick_folder" type="object"
+                                string="Elegir carpeta destino"
+                                class="btn-secondary" icon="fa-folder-open"/>
+                        <button name="action_clear_folder" type="object"
+                                string="Usar carpeta raíz global"
+                                class="btn-link"
+                                invisible="not dest_item_id"
+                                confirm="¿Volver a usar la carpeta raíz global para este tipo?"/>
+                    </group>
+                    <group>
+                        <group string="Variables disponibles">
+                            <field name="tokens_help" nolabel="1" readonly="1"
+                                   class="risk-sp-token-field"/>
+                        </group>
+                        <group string="Formato del archivo">
+                            <field name="folder_template"
+                                   string="Estructura de carpetas"
+                                   placeholder="{conductor_doc} {conductor}"/>
+                            <field name="filename_template"
+                                   string="Nombre del archivo"
+                                   placeholder="{documento} {fecha}"/>
+                            <field name="append_id" string="Evitar duplicados"/>
+                            <field name="duplicate_policy_display" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Vista previa"
+                           help="Solo para previsualizar; no guarda nada.">
+                        <field name="preview_submission_id"/>
+                        <field name="preview_document_type"/>
+                        <field name="preview_folder" readonly="1"
+                               invisible="not preview_submission_id"/>
+                        <field name="preview_filename" readonly="1"
+                               invisible="not preview_submission_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_risk_sharepoint_route" model="ir.actions.act_window">
+        <field name="name">Rutas SharePoint</field>
+        <field name="res_model">risk.sharepoint.route</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Configura dónde y con qué nombre se guardan los documentos por tipo</p>
+            <p>Cada tipo (conductor, propietario, vehículo, semi/remolque) puede tener su propia carpeta de SharePoint (botón <b>Elegir carpeta destino</b>) y plantillas de carpeta y nombre con variables como <code>{placa}</code> o <code>{conductor}</code>. Si no se elige carpeta, cuelga de la carpeta raíz configurada en Ajustes.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_risk_sharepoint_route"
+              name="Rutas SharePoint"
+              parent="menu_risk_module_configuration"
+              action="action_risk_sharepoint_route"
+              sequence="40"
+              groups="base.group_system"/>
+</odoo>

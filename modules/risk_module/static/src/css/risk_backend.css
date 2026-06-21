@@ -1,0 +1,797 @@
+.risk_document_summary {
+    border: 1px solid #d8b46a;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    background: #f7fbf8;
+}
+
+.risk_document_summary .o_group_name {
+    color: #214c3a;
+    font-weight: 700;
+}
+
+.risk-document-preview-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.55fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.risk-document-preview {
+    min-height: 72vh;
+}
+
+.risk-document-preview .o_field_pdf_viewer .o_pdfview_iframe {
+    height: 72vh;
+    min-height: 620px;
+    margin-top: 0;
+    border: 1px solid #dce5db;
+    border-radius: 8px;
+}
+
+.risk-document-details {
+    border: 1px solid #dce5db;
+    border-radius: 8px;
+    padding: 12px;
+    background: #fff;
+}
+
+@media (max-width: 1100px) {
+    .risk-document-preview-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.risk-decision-wizard {
+    padding-top: 8px;
+}
+
+.risk-decision-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.45fr);
+    gap: 18px;
+    align-items: center;
+    margin-bottom: 14px;
+    padding: 12px 14px;
+    border: 1px solid #dce5db;
+    border-radius: 8px;
+    background: #f7fbf8;
+}
+
+.risk-decision-eyebrow {
+    margin-bottom: 3px;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.risk-correction-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.48fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.risk-correction-main,
+.risk-correction-sections {
+    border: 1px solid #dce5db;
+    border-radius: 8px;
+    padding: 12px 14px;
+    background: #fff;
+}
+
+.risk-correction-section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 12px;
+    row-gap: 8px;
+    margin-top: 8px;
+}
+
+.risk-correction-section-item {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    min-height: 42px;
+    padding: 6px 10px;
+    border: 1px solid #edf0f2;
+    border-radius: 6px;
+    background: #fbfcfd;
+}
+
+.risk-correction-section-item label {
+    margin: 0;
+    color: #1f2933;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .risk-decision-header,
+    .risk-correction-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.risk-template-wizard-intro {
+    margin-bottom: 14px;
+    padding: 14px 16px;
+    border: 1px solid #dce5db;
+    border-radius: 8px;
+    background: #f7fbf8;
+}
+
+.risk-template-wizard-intro h2 {
+    margin: 0 0 4px;
+    color: #1f2933;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.risk-template-wizard-intro p {
+    margin: 0;
+    color: #667085;
+}
+
+.risk-message-template-wizard textarea,
+.risk-message-template-form textarea {
+    min-height: 120px;
+}
+
+.risk-message-template-kanban .o_kanban_record {
+    padding: 0;
+}
+
+.risk-message-card {
+    min-height: 150px;
+    padding: 12px 14px;
+    border-left: 4px solid #7a679f;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.risk-message-card-document_rejection {
+    border-left-color: #d8a23a;
+}
+
+.risk-message-card-submission_correction {
+    border-left-color: #3478a8;
+}
+
+.risk-message-card-submission_rejection {
+    border-left-color: #a83f3f;
+}
+
+.risk-message-card-header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.risk-message-card-type {
+    display: inline-flex;
+    max-width: 100%;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: #f3f4f6;
+    color: #4b5563;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.risk-message-card-title {
+    margin-bottom: 8px;
+    color: #1f2933;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.risk-message-card-body {
+    display: -webkit-box;
+    overflow: hidden;
+    color: #4b5563;
+    font-size: 13px;
+    line-height: 1.35;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.risk-document-requirement-kanban .o_kanban_record {
+    padding: 0;
+}
+
+.risk-docreq-card {
+    min-height: 150px;
+    padding: 12px 14px;
+    border-left: 4px solid #7a679f;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.risk-docreq-card-driver {
+    border-left-color: #3478a8;
+}
+
+.risk-docreq-card-owner {
+    border-left-color: #7a679f;
+}
+
+.risk-docreq-card-vehicle {
+    border-left-color: #2f855a;
+}
+
+.risk-docreq-card-semi_trailer {
+    border-left-color: #b7791f;
+}
+
+.risk-docreq-card-other {
+    border-left-color: #718096;
+}
+
+.risk-docreq-card-header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.risk-docreq-profile {
+    display: inline-flex;
+    max-width: 100%;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: #f3f4f6;
+    color: #4b5563;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.risk-docreq-title {
+    margin-bottom: 8px;
+    color: #1f2933;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.risk-docreq-rule {
+    margin-bottom: 10px;
+    color: #667085;
+    font-size: 13px;
+}
+
+.risk-docreq-rule span {
+    margin-right: 4px;
+}
+
+.risk-docreq-rule strong {
+    color: #344054;
+    font-weight: 700;
+}
+
+.risk-docreq-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.risk-docreq-badge {
+    display: inline-flex;
+    padding: 3px 7px;
+    border-radius: 6px;
+    background: #edf7f1;
+    color: #245642;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.risk-docreq-badge-muted {
+    background: #f3f4f6;
+    color: #667085;
+}
+
+.risk-docreq-form-intro {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding: 14px 16px;
+    border: 1px solid #dce5db;
+    border-radius: 8px;
+    background: #f7fbf8;
+}
+
+.risk-docreq-form-intro h2 {
+    margin: 0 0 4px;
+    color: #1f2933;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.risk-docreq-form-intro p {
+    margin: 0;
+    color: #667085;
+}
+
+.risk-docreq-form-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    gap: 16px;
+    align-items: start;
+}
+
+.risk-docreq-panel {
+    padding: 14px;
+    border: 1px solid #dce5db;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.risk-docreq-panel-wide {
+    grid-column: span 1;
+}
+
+.risk-docreq-panel-title {
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #edf0f2;
+    color: #1f2933;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.risk-docreq-option-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.risk-docreq-option-grid-one {
+    grid-template-columns: 1fr;
+}
+
+.risk-docreq-option {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    min-height: 40px;
+    padding: 6px 10px;
+    border: 1px solid #edf0f2;
+    border-radius: 6px;
+    background: #fbfcfd;
+}
+
+.risk-docreq-option label {
+    margin: 0;
+    color: #1f2933;
+    font-weight: 600;
+}
+
+.risk-docreq-panel textarea {
+    min-height: 110px;
+}
+
+@media (max-width: 1100px) {
+    .risk-docreq-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.risk-sp-status-panel,
+.risk-sp-field-panel {
+    max-width: 760px;
+}
+
+.risk-sp-status-panel {
+    display: grid;
+    gap: 8px;
+    padding: 12px 14px;
+    border: 1px solid #dce5db;
+    border-radius: 8px;
+    background: #f7fbf8;
+}
+
+.risk-sp-status-copy {
+    color: #344054;
+    font-weight: 700;
+}
+
+.risk-sp-location-copy {
+    color: #667085;
+    font-size: 13px;
+}
+
+.risk-sp-action-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.risk-sp-inline-button {
+    white-space: nowrap;
+}
+
+.risk-sp-advanced {
+    padding: 10px 12px;
+    border: 1px dashed #cfd8d3;
+    border-radius: 8px;
+    background: #fbfcfd;
+}
+
+.risk-sp-advanced label {
+    color: #344054;
+    font-weight: 800;
+}
+
+.risk-sp-advanced-body {
+    padding-top: 8px;
+    border-top: 1px solid #edf0f2;
+}
+
+.risk-sp-maintenance {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.risk-sp-route-link {
+    font-weight: 700;
+}
+
+.risk-sp-explorer {
+    max-width: 980px;
+}
+
+.risk-sp-wizard-head {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    padding: 14px 16px;
+    border: 1px solid #dce5db;
+    border-radius: 8px;
+    background: #f7fbf8;
+}
+
+.risk-sp-wizard-head h4 {
+    margin: 4px 0;
+    color: #1f2933;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.risk-sp-wizard-head p {
+    margin: 0;
+}
+
+.risk-sp-step-pill {
+    display: inline-flex;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #e7f2fb;
+    color: #245a7d;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.risk-sp-current-path {
+    min-width: 240px;
+    max-width: 380px;
+    padding: 10px 12px;
+    border: 1px solid #edf0f2;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.risk-sp-current-path span,
+.risk-sp-counts span {
+    display: block;
+    margin-bottom: 3px;
+    color: #667085;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.risk-sp-current-path .o_field_widget {
+    overflow-wrap: anywhere;
+    color: #1f2933;
+    font-weight: 800;
+}
+
+.risk-sp-counts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 6px 0 10px;
+}
+
+.risk-sp-counts > div {
+    min-width: 116px;
+    padding: 10px 12px;
+    border: 1px solid #edf0f2;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.risk-sp-counts .o_field_widget {
+    color: #1f2933;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.risk-sp-route-form {
+    max-width: 1120px;
+}
+
+.risk-sp-route-summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
+    gap: 16px;
+    align-items: stretch;
+    margin-bottom: 16px;
+    padding: 16px;
+    border: 1px solid #dce5db;
+    border-radius: 8px;
+    background: #f7fbf8;
+}
+
+.risk-sp-route-summary h3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: baseline;
+    margin: 6px 0 8px;
+    color: #1f2933;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.risk-sp-route-summary h3 .o_field_widget {
+    color: #245a7d;
+}
+
+.risk-sp-route-preview {
+    color: #344054;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.risk-sp-route-destination {
+    padding: 12px 14px;
+    border: 1px solid #edf0f2;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.risk-sp-route-destination span {
+    display: block;
+    margin-bottom: 4px;
+    color: #667085;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.risk-sp-route-destination .o_field_widget {
+    color: #1f2933;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.risk-sp-route-list .o_data_cell {
+    vertical-align: middle;
+}
+
+.risk-sp-token-field,
+.risk-sp-token-field .o_field_html,
+.risk-sp-token-field .o_field_widget {
+    display: block;
+    width: 100%;
+}
+
+.risk-sp-token-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 10px;
+    width: 100%;
+}
+
+.risk-sp-token-chip {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-height: 76px;
+    padding: 7px 9px;
+    border: 1px solid #edf0f2;
+    border-radius: 8px;
+    background: #fbfcfd;
+}
+
+.risk-sp-token-chip code {
+    color: #245a7d;
+    font-weight: 800;
+}
+
+.risk-sp-token-chip small {
+    color: #667085;
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+@media (max-width: 900px) {
+    .risk-sp-wizard-head {
+        display: block;
+    }
+
+    .risk-sp-current-path {
+        max-width: none;
+        margin-top: 12px;
+    }
+
+    .risk-sp-route-summary {
+        grid-template-columns: 1fr;
+    }
+}
+
+.risk-submission-kanban .o_kanban_record {
+    padding: 0;
+}
+
+.risk-submission-card {
+    --risk-state-border: #7a679f;
+    --risk-state-bg: #f3f0f8;
+    --risk-state-text: #4f3f6e;
+
+    min-height: 220px;
+    padding: 14px;
+    border-left: 4px solid var(--risk-state-border);
+    border-radius: 8px;
+    background: #fff;
+}
+
+.risk-submission-card-draft {
+    --risk-state-border: #98a2b3;
+    --risk-state-bg: #f2f4f7;
+    --risk-state-text: #475467;
+}
+
+.risk-submission-card-submitted,
+.risk-submission-card-risk_review,
+.risk-submission-card-external_validation_pending,
+.risk-submission-card-correction_submitted {
+    --risk-state-border: #3478a8;
+    --risk-state-bg: #e7f2fb;
+    --risk-state-text: #245a7d;
+}
+
+.risk-submission-card-manual_approval_pending,
+.risk-submission-card-documents_review {
+    --risk-state-border: #7a679f;
+    --risk-state-bg: #f3f0f8;
+    --risk-state-text: #4f3f6e;
+}
+
+.risk-submission-card-documents_requested,
+.risk-submission-card-correction_required {
+    --risk-state-border: #d8a23a;
+    --risk-state-bg: #fff4d6;
+    --risk-state-text: #744b12;
+}
+
+.risk-submission-card-approved {
+    --risk-state-border: #2f855a;
+    --risk-state-bg: #e3f5e9;
+    --risk-state-text: #245642;
+}
+
+.risk-submission-card-rejected {
+    --risk-state-border: #a83f3f;
+    --risk-state-bg: #fde8e8;
+    --risk-state-text: #8a2f2f;
+}
+
+.risk-submission-card-header {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.risk-submission-card-plate {
+    color: #1f2933;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.risk-submission-card-date {
+    margin-top: 3px;
+    color: #667085;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.risk-submission-state-badge {
+    display: inline-flex;
+    max-width: 140px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: var(--risk-state-bg);
+    color: var(--risk-state-text);
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.risk-submission-card-body {
+    display: grid;
+    gap: 7px;
+    margin-bottom: 12px;
+}
+
+.risk-submission-info-row {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 8px;
+    align-items: baseline;
+}
+
+.risk-submission-info-row span {
+    color: #667085;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.risk-submission-info-row strong {
+    overflow: hidden;
+    color: #1f2933;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.risk-submission-next-action {
+    margin: 12px 0;
+    padding: 10px 12px;
+    border: 1px solid #dce5db;
+    border-radius: 8px;
+    background: #f7fbf8;
+}
+
+.risk-submission-next-action span {
+    display: block;
+    margin-bottom: 2px;
+    color: #667085;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.risk-submission-next-action strong {
+    color: #214c3a;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.risk-submission-card-footer {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    color: #667085;
+    font-size: 12px;
+    font-weight: 700;
+}

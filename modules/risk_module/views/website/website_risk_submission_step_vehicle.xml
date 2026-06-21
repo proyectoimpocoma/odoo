@@ -1,0 +1,110 @@
+<odoo>
+    <template id="register_driver_step_vehicle" name="Registro Vehiculo Paso Vehiculo">
+        <div class="risk-vr-fields">
+            <div class="risk-vr-grid">
+                <div class="risk-vr-field">
+                    <label for="form_date">Fecha</label>
+                    <input id="form_date" name="form_date" type="date"
+                           t-att-value="data.get('form_date')"
+                           required="required"
+                           placeholder="Selecciona la fecha de registro"/>
+                </div>
+                <div class="risk-vr-field">
+                    <label for="vehicle_plate">Placa</label>
+                    <input id="vehicle_plate" name="vehicle_plate" type="text"
+                           t-att-value="data.get('vehicle_plate')"
+                           required="required"
+                           autocomplete="off"
+                           pattern="[A-Za-z]{3}[0-9]{3}"
+                           title="Formato valido: ABC123 (3 letras + 3 digitos)"
+                           placeholder="EJ: ASD123"/>
+                </div>
+            </div>
+
+            <t t-set="semi_enabled" t-value="data.get('has_semi_trailer') == 'yes' or (not data.get('has_semi_trailer') and data.get('semi_trailer_plate'))"/>
+            <div class="risk-vr-semi">
+                <div class="risk-vr-semi-head">
+                    <div>
+                        <h3>Semi/Remolque</h3>
+                        <p>Indica si el vehículo tiene semi/remolque asociado.</p>
+                    </div>
+                    <div class="risk-vr-toggle-wrap">
+                        <span>NO</span>
+                        <div class="risk-vr-toggle">
+                            <input id="has_semi_trailer" name="has_semi_trailer" type="hidden"
+                                   t-att-value="'yes' if semi_enabled else 'no'"/>
+                            <input id="has_semi_trailer_toggle" class="risk-vr-toggle-checkbox" type="checkbox"
+                                   t-att-checked="'checked' if semi_enabled else None"/>
+                            <label class="risk-vr-toggle-label" for="has_semi_trailer_toggle"></label>
+                        </div>
+                        <span class="risk-vr-toggle-yes">SÍ</span>
+                    </div>
+                </div>
+
+                <div t-attf-class="risk-vr-field risk-vr-semi-plate risk-semi-field #{'' if semi_enabled else 'is-disabled'}"
+                     data-semi-trailer-field="1">
+                    <label for="semi_trailer_plate">Placa Semi/Remolque</label>
+                    <input id="semi_trailer_plate" name="semi_trailer_plate" type="text"
+                           t-att-value="data.get('semi_trailer_plate')"
+                           t-att-disabled="None if semi_enabled else 'disabled'"
+                           autocomplete="off"
+                           pattern="[A-Za-z][0-9]{5}"
+                           title="Formato valido: A12345 (una letra y cinco numeros)"
+                           placeholder="EJ: A21344"/>
+                </div>
+            </div>
+
+            <div class="risk-vr-satellite">
+                <h3>
+                    <span class="material-symbols-outlined">satellite_alt</span>
+                    Rastreo Satelital
+                </h3>
+                <div class="risk-vr-grid">
+                    <div class="risk-vr-field risk-vr-field-full">
+                        <label for="satellite_company">Empresa Satelital</label>
+                        <input id="satellite_company" name="satellite_company" type="text"
+                               t-att-value="data.get('satellite_company')"
+                               required="required"
+                               maxlength="80"
+                               autocomplete="off"
+                               placeholder="Nombre de la empresa de rastreo"/>
+                    </div>
+                    <div class="risk-vr-field risk-vr-field-full">
+                        <label for="satellite_url">URL de la empresa de rastreo</label>
+                        <input id="satellite_url" name="satellite_url" type="url"
+                               t-att-value="data.get('satellite_url')"
+                               required="required"
+                               maxlength="200"
+                               autocomplete="url"
+                               placeholder="https://rastreo.ejemplo.com"/>
+                    </div>
+                    <div class="risk-vr-field">
+                        <label for="satellite_user">Usuario</label>
+                        <input id="satellite_user" name="satellite_user" type="text"
+                               t-att-value="data.get('satellite_user')"
+                               required="required"
+                               maxlength="80"
+                               autocomplete="off"
+                               placeholder="Usuario de la cuenta"/>
+                    </div>
+                    <div class="risk-vr-field">
+                        <label for="satellite_password">Clave</label>
+                        <div class="risk-vr-password">
+                            <input id="satellite_password" name="satellite_password" type="password"
+                                   t-att-value="data.get('satellite_password')"
+                                   required="required"
+                                   maxlength="80"
+                                   autocomplete="off"
+                                   placeholder="Contraseña de la cuenta satelital"/>
+                            <button type="button"
+                                    class="risk-password-toggle btn-toggle-password"
+                                    aria-label="Mostrar contraseña">
+                                <span class="material-symbols-outlined">visibility</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>

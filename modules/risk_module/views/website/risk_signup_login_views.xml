@@ -1,0 +1,15 @@
+<odoo>
+    <template id="risk_signup_login_link" inherit_id="web.login" name="Risk signup login link">
+        <xpath expr="//div[hasclass('oe_login_buttons')]/button[@type='submit']" position="after">
+            <a class="btn btn-outline-primary btn-sm mt-2"
+               href="/web/signup?redirect=/registro-conductor">
+                Crear cuenta
+            </a>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_login_buttons')]/t[@t-if='debug']/button[@value='/web/become']" position="replace"/>
+    </template>
+
+    <template id="risk_hide_default_signup_link" inherit_id="auth_signup.login" name="Hide default signup link">
+        <xpath expr="//a[contains(@t-attf-href, '/web/signup')]" position="replace"/>
+    </template>
+</odoo>
