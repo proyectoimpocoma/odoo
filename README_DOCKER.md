@@ -225,6 +225,12 @@ Actualizar los modulos principales:
 ./scripts/docker.sh update-all
 ```
 
+Forzar `theme_impocoma` como tema activo del website:
+
+```bash
+./scripts/docker.sh apply-theme
+```
+
 Backup y restore:
 
 ```bash

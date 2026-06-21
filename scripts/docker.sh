@@ -32,6 +32,7 @@ Comandos:
   install <modulos>            Instala modulos, ejemplo: risk_module
   update <modulos>             Actualiza modulos, ejemplo: risk_module
   update-all                   Actualiza ${DEFAULT_MODULES}
+  apply-theme                  Fuerza theme_impocoma como tema del website
   module-status                Muestra estado de modulos principales
   backup                       Exporta backups/mi_empresa_YYYYmmdd_HHMMSS.sql
   restore <archivo.sql>        Restaura un SQL en ${DB_NAME}
@@ -91,6 +92,34 @@ init_environment() {
   compose up --build -d
   wait_for_database
   run_odoo_module_command "i" "$DEFAULT_MODULES"
+  apply_theme
+}
+
+apply_theme() {
+  echo "Aplicando theme_impocoma al website..."
+  compose exec -T odoo odoo shell -c "$ODOO_CONFIG" -d "$DB_NAME" <<'PY'
+theme = env["ir.module.module"].sudo().search([("name", "=", "theme_impocoma")], limit=1)
+if not theme:
+    raise SystemExit("theme_impocoma no esta disponible")
+
+websites = env["website"].sudo().search([])
+if not websites:
+    websites = env["website"].sudo().create({
+        "name": "Impocoma",
+        "theme_id": theme.id,
+    })
+
+theme_loader = theme.with_context(apply_new_theme=True)._theme_get_stream_themes()
+for website in websites:
+    website.write({"theme_id": theme.id})
+    theme_loader._theme_load(website)
+
+env.cr.commit()
+print("theme_impocoma aplicado a websites:", ", ".join(str(w.id) for w in websites))
+PY
+
+  echo "Reiniciando Odoo..."
+  compose restart odoo
 }
 
 confirm_reset() {
@@ -185,6 +214,10 @@ case "$command" in
 
   update-all)
     run_odoo_module_command "u" "$DEFAULT_MODULES"
+    ;;
+
+  apply-theme)
+    apply_theme
     ;;
 
   module-status)

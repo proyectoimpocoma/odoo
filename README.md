@@ -115,6 +115,18 @@ Equivalente Windows:
 powershell -ExecutionPolicy Bypass -File .\scripts\docker-windows.ps1 update risk_module
 ```
 
+Forzar el tema corporativo en una base donde el modulo ya estaba instalado:
+
+```bash
+./scripts/docker.sh apply-theme
+```
+
+Windows:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\docker-windows.ps1 apply-theme
+```
+
 ## Modulos
 
 ### `risk_module`
@@ -241,4 +253,3 @@ PY
 
 - `README_DOCKER.md`: detalle del entorno Docker.
 - `AGENTS.md`: guia para agentes de desarrollo y convenciones del proyecto.
-

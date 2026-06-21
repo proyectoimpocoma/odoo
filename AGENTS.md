@@ -32,6 +32,7 @@ docker compose exec -T odoo odoo -c /etc/odoo/odoo.conf -d mi_empresa -u module_
 ```
 
 Usa `./scripts/docker.sh init` o `scripts/docker-windows.ps1 init` para una primera ejecucion. `up` solo levanta contenedores; no instala el esquema/modulos de Odoo en una base nueva.
+Si `theme_impocoma` queda instalado pero no aplicado visualmente, usa `./scripts/docker.sh apply-theme` o `scripts/docker-windows.ps1 apply-theme`.
 
 Despues de actualizar un modulo con `--stop-after-init --no-http`, reinicia Odoo:
 

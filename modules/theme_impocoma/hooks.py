@@ -14,5 +14,5 @@ def post_init_hook(env):
 
     theme_loader = theme.with_context(apply_new_theme=True)._theme_get_stream_themes()
     for website in websites:
-        theme_loader._theme_load(website)
         website.write({"theme_id": theme.id})
+        theme_loader._theme_load(website)
