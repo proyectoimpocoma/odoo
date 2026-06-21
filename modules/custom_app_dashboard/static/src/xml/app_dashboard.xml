@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+
+    <t t-name="custom_app_dashboard.MainDashboard">
+
+        <div class="custom_main_dashboard">
+
+            <div class="dashboard_container">
+
+                <t t-foreach="state.apps"
+                   t-as="app"
+                   t-key="app.id">
+
+                    <a
+                        t-att-href="'/odoo/action-' + app.actionID + '?menu_id=' + app.id"
+                        t-att-title="app.name"
+                        class="dashboard_app_card"
+                    >
+
+                        <img
+                            t-att-src="'/web/image/ir.ui.menu/' + app.id + '/web_icon_data'"
+                            t-att-alt="app.name"
+                            class="dashboard_app_icon"
+                            draggable="false"
+                        />
+
+                        <div class="dashboard_app_name">
+                            <t t-esc="app.name"/>
+                        </div>
+
+                    </a>
+
+                </t>
+
+            </div>
+
+        </div>
+
+    </t>
+
+</templates>

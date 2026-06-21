@@ -1,0 +1,8 @@
+.DS_Store
+.container-data/
+.git/
+.odoo-data/
+.venv/
+odoo.log
+**/__pycache__/
+**/*.pyc

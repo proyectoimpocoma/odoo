@@ -1,0 +1,56 @@
+# macOS
+.DS_Store
+
+# Editors and local environment
+.idea/
+.vscode/
+*.swp
+*.swo
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+env/
+
+# Odoo runtime artifacts
+.odoo-data/
+odoo.log
+*.log
+
+# Docker and local container data
+.container-data/
+backups/
+*.sql
+*.dump
+*.backup
+
+# Test and coverage artifacts
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+
+# Node/front-end generated files
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Nested module repositories should not be committed into a root monorepo.
+modules/*/.git/
+
+# Keep project Docker files versioned.
+!Dockerfile.odoo
+!docker-compose.yml
+!config/odoo.docker.conf
+!README_DOCKER.md
+!scripts/docker.sh
+!scripts/docker.ps1
+!scripts/docker-mac.ps1
+!scripts/docker-windows.ps1
