@@ -5,7 +5,7 @@ namespace de logger propio, manteniendo ``risk_submission.py`` con
 solo los campos, el form-lock y los overrides de CRUD.
 """
 
-from ....modules.risk_module.models.risk_submission_mixins import risk_submission_signature
+from . import risk_submission_signature
 
 __all__ = [
     "risk_submission_signature",

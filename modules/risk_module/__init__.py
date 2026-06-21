@@ -1,6 +1,6 @@
-from ..modules.risk_module import models
-from ..modules.risk_module import wizards
-from ..modules.risk_module import controllers
+from . import models
+from . import wizards
+from . import controllers
 
 __all__ = [
     "models",

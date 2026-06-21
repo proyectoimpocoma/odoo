@@ -1,6 +1,6 @@
-from ...modules.risk_module.tests import test_risk_submission
-from ...modules.risk_module.tests import test_risk_sharepoint
-from ...modules.risk_module.tests import test_risk_sharepoint_route
+from . import test_risk_submission
+from . import test_risk_sharepoint
+from . import test_risk_sharepoint_route
 
 __all__ = [
     "test_risk_submission",
