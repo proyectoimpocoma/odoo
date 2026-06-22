@@ -85,6 +85,7 @@ Responsabilidades:
 - Header/footer publico del website.
 - Pantalla de login personalizada.
 - Logo corporativo en `static/src/img/impocoma_logo.jpeg`.
+- App Dashboard del backend (launcher de apps que reemplaza el menu "Apps"), antes en el modulo `custom_app_dashboard`.
 
 Paleta estandar:
 
@@ -101,17 +102,20 @@ Archivos clave:
 - `static/src/scss/website_layout.scss`: header/footer publico.
 - `views/login_templates.xml`: branding del login.
 - `views/website_layout_templates.xml`: header y footer.
+- `views/dashboard_views.xml`: accion cliente + menu "Home" del App Dashboard.
+- `static/src/js/app_dashboard.js`: componente OWL del dashboard.
+- `static/src/js/navbar_patch.js`: redirige el click del menu "Apps" al dashboard.
+- `static/src/xml/app_dashboard.xml`, `static/src/xml/navbar_patch.xml`: plantillas QWeb/OWL.
+- `static/src/scss/app_dashboard.scss`: estilos del dashboard (paleta Impocoma).
 
 Reglas importantes:
 
 - Carga variables en `web._assets_primary_variables`.
 - Carga estilos de login/website en `web.assets_frontend`.
+- Carga JS/XML/SCSS del dashboard en `web.assets_backend`.
+- El dashboard usa las variables `$imp-*` de `primary_variables.scss`; no hardcodees colores ni fuerces el color del navbar (lo gobierna `$o-navbar-background`).
 - Evita `min()` Sass con unidades mixtas (`px` y `vw/%`). Usa `width` + `max-width`.
 - Para heredar vistas QWeb, evita depender de clases dinamicas con `hasclass()` si la clase viene de `t-attf-class`; usa atributos estaticos cuando existan.
-
-### `modules/custom_app_dashboard`
-
-Modulo de dashboard/app launcher de backend para Odoo Community. Es de tipo UI backend y depende de `web`.
 
 ## Estandar Para Nuevos Modulos
 

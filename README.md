@@ -5,8 +5,7 @@ Entorno local de Odoo 19 para desarrollo de modulos personalizados de Impocoma. 
 ## Contenido
 
 - `risk_module`: modulo principal para habilitacion de terceros, gestion documental, revision de riesgo, portal y SharePoint.
-- `theme_impocoma`: tema corporativo para login, website y estilos base.
-- `custom_app_dashboard`: dashboard/app launcher para backend de Odoo Community.
+- `theme_impocoma`: tema corporativo para login, website, estilos base y App Dashboard (launcher de apps del backend).
 - `docker-compose.yml`: servicios `db` y `odoo`.
 - `Dockerfile.odoo`: imagen Odoo con dependencias Python adicionales.
 - `config/odoo.docker.conf`: configuracion usada dentro del contenedor.
@@ -167,16 +166,13 @@ Incluye:
 - Header/footer publico.
 - Logo y paleta corporativa.
 - Variables SCSS para Odoo.
+- App Dashboard del backend (launcher de apps que reemplaza el menu "Apps"), integrado desde el antiguo modulo `custom_app_dashboard`.
 
 Paleta:
 
 - Naranja: `#f77c00`.
 - Azul marino: `#003b73`.
 - Texto: `#121c2c`.
-
-### `custom_app_dashboard`
-
-Modulo UI para dashboard/app launcher en Odoo Community.
 
 ## Base de Datos
 

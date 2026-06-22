@@ -21,6 +21,7 @@ Paleta:
     "data": [
         "views/website_layout_templates.xml",
         "views/login_templates.xml",
+        "views/dashboard_views.xml",
     ],
     "assets": {
         # Las variables primarias deben cargarse en este bundle especial
@@ -32,6 +33,14 @@ Paleta:
         "web.assets_frontend": [
             "theme_impocoma/static/src/scss/login.scss",
             "theme_impocoma/static/src/scss/website_layout.scss",
+        ],
+        # App Dashboard (antes módulo custom_app_dashboard, ahora integrado).
+        "web.assets_backend": [
+            "theme_impocoma/static/src/js/app_dashboard.js",
+            "theme_impocoma/static/src/js/navbar_patch.js",
+            "theme_impocoma/static/src/xml/navbar_patch.xml",
+            "theme_impocoma/static/src/xml/app_dashboard.xml",
+            "theme_impocoma/static/src/scss/app_dashboard.scss",
         ],
     },
     "post_init_hook": "post_init_hook",
