@@ -1,0 +1,13 @@
+<odoo>
+    <menuitem id="menu_addon_root"
+              name="Addon Name"
+              sequence="60"
+              groups="addon_name.group_addon_user"/>
+
+    <menuitem id="menu_addon_record"
+              name="Records"
+              parent="menu_addon_root"
+              action="action_addon_record"
+              sequence="10"
+              groups="addon_name.group_addon_user"/>
+</odoo>
