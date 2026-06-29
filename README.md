@@ -2,6 +2,12 @@
 
 Entorno local de Odoo 19 para desarrollo de modulos personalizados de Impocoma. El proyecto usa Docker Compose con PostgreSQL 16 y monta los addons locales desde `modules/`.
 
+> **IMPORTANTE — consulta siempre `docs/ai/` antes de crear o modificar modulos.**
+> Esas guias son la fuente de verdad de las convenciones del proyecto (estructura,
+> permisos, migracion, traducciones, validacion). Lee la guia relevante **antes**
+> de empezar y sigue su checklist **antes** de dar por terminado un cambio. Ver
+> [Documentacion Relacionada](#documentacion-relacionada).
+
 ## Contenido
 
 - `risk_module`: modulo principal para habilitacion de terceros, gestion documental, revision de riesgo, portal y SharePoint.
@@ -249,3 +255,14 @@ PY
 
 - `README_DOCKER.md`: detalle del entorno Docker.
 - `AGENTS.md`: guia para agentes de desarrollo y convenciones del proyecto.
+
+### Guias `docs/ai/` (consulta obligatoria)
+
+Antes de crear o tocar un modulo, lee la guia que corresponda y aplica su checklist:
+
+- `docs/ai/module_blueprint.md`: estructura, naming, orden de carga y manifest de un modulo.
+- `docs/ai/permissions_policy.md`: grupos, `ir.rule`, ACL y `perm_unlink=0` por defecto.
+- `docs/ai/validation_checklist.md`: checks de Python/XML/JS/manifest antes de terminar.
+- `docs/ai/migration_18_to_19.md`: cambios y trampas al migrar modulos de Odoo 18 a 19.
+- `docs/ai/i18n_guide.md`: traducciones, `_()`, fuente en ingles y como anadir un idioma.
+- `docs/ai/theme_usage.md`: uso del tema corporativo y la paleta Impocoma.
