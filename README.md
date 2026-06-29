@@ -266,3 +266,4 @@ Antes de crear o tocar un modulo, lee la guia que corresponda y aplica su checkl
 - `docs/ai/migration_18_to_19.md`: cambios y trampas al migrar modulos de Odoo 18 a 19.
 - `docs/ai/i18n_guide.md`: traducciones, `_()`, fuente en ingles y como anadir un idioma.
 - `docs/ai/theme_usage.md`: uso del tema corporativo y la paleta Impocoma.
+- `docs/ai/anti_patterns.md`: errores tipicos, deprecateds y trampas que se han visto en este repo.

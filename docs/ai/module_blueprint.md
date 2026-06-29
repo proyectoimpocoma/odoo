@@ -8,6 +8,15 @@ Use this blueprint before creating or extending modules in this repository.
 - Use lowercase `snake_case` addon names without hyphens.
 - Use dotted business model names, for example `fleet.onboarding.request`.
 - Do not rename an existing model `_name` without a migration plan.
+- When creating Odoo models, always set a clear `_description` that identifies the business object and module context. Audit log entries use model descriptions, so avoid generic labels like `Record`, `Request`, or `Line`.
+
+Example:
+
+```python
+class FleetOnboardingRequest(models.Model):
+    _name = "fleet.onboarding.request"
+    _description = "Fleet Onboarding Request"
+```
 
 ## Default Structure
 

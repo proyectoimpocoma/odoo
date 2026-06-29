@@ -44,3 +44,24 @@ Do not hardcode the Impocoma orange, blue, text, line, or soft background colors
 - Backend UI styles: `web.assets_backend`.
 - Public website or portal styles: `web.assets_frontend`.
 - Global Odoo theme variables belong only in `theme_impocoma` under `web._assets_primary_variables`.
+
+## Trampas Técnicas del Tema
+
+Reglas operativas que rompen assets o vistas si se ignoran. Mantenlas
+localizadas; los anti-patrones generales viven en `anti_patterns.md`.
+
+- **Sass `min()` / `max()` con unidades mixtas** (`px` con `vw` o `%`) rompe
+  la compilación. Usar `width` + `max-width` separados.
+- **Heredar vistas QWeb**: no depender de `hasclass()` cuando la clase viene
+  de un `t-attf-class`. Usar atributos estáticos cuando existan en la vista
+  base.
+- **No forzar el color del navbar** desde un módulo de negocio. Lo gobierna
+  `$o-navbar-background` del tema. Si necesitas color de marca en otro
+  elemento, usa las variables `$imp-*`.
+- **Cargar el JS del dashboard** en `web.assets_frontend` no se ve. El
+  `app_dashboard.js` y el `navbar_patch.js` deben ir en
+  `web.assets_backend`; sus plantillas QWeb/OWL en
+  `static/src/xml/...` también.
+- **Heredar `primary_variables.scss`** solo si necesitas extender variables
+  globales. Para estilos de módulo nuevo, crea un SCSS propio en
+  `static/src/scss/` y registra el asset en el manifest.

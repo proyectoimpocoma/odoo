@@ -4,7 +4,7 @@ Apply this policy to production modules.
 
 ## Groups
 
-Create explicit module groups in `security/groups.xml`.
+Always create explicit recommended module groups in `security/groups.xml` for production modules. Do not rely only on `base.group_user` or ad hoc access rules.
 
 Recommended pattern:
 
