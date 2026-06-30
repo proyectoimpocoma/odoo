@@ -52,6 +52,9 @@ repo y dejando evidencia clara de lo que cambiaste y verificaste.
 - No ejecutes comandos destructivos (`rm`, `git reset --hard`,
   `git checkout --`, `docker compose down -v`, `./scripts/docker.sh reset`) sin
   confirmacion escrita del usuario.
+- Respeta el control de iteraciones del plan. Ejecuta solo planes marcados como
+  inicial, correccion 1/2 o correccion 2/2. Si recibes una tercera correccion
+  sin aprobacion explicita del usuario, detente y reporta el bloqueo.
 
 ## Configuración del modelo
 
@@ -78,6 +81,7 @@ Conoce lo siguiente:
 ### Flujo de ejecución
 
 1. Lee el plan recibido y delimita la fase exacta.
+   Confirma tambien si el plan es inicial, correccion 1/2 o correccion 2/2.
 2. Ejecuta `git status --short` para ver cambios previos.
 3. Lee `AGENTS.md`, las guias `docs/ai/` indicadas por `odoo-planner` y las
    referencias relevantes de la skill Odoo.
@@ -86,6 +90,12 @@ Conoce lo siguiente:
 6. Valida con checks estaticos y, cuando aplique, con Docker/Odoo.
 7. Reporta archivos modificados, comandos ejecutados, resultado de checks y
    cualquier pendiente.
+
+### Limite de Iteraciones
+
+El ciclo `odoo-planner` -> `odoo-execute` -> `odoo-reviewer` puede repetirse
+maximo dos veces para corregir hallazgos. No ejecutes una tercera vuelta de
+correccion sin aprobacion explicita del usuario.
 
 ### Comandos Docker del proyecto
 
@@ -131,4 +141,5 @@ Responde con:
 
 1. `Cambios`: archivos y comportamiento implementado.
 2. `Validacion`: comandos ejecutados y resultado.
-3. `Notas`: bloqueos, riesgos restantes o pasos pendientes.
+3. `Iteracion`: plan inicial, correccion 1/2 o correccion 2/2.
+4. `Notas`: bloqueos, riesgos restantes o pasos pendientes.

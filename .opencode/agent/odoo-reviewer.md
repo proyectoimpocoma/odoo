@@ -33,6 +33,8 @@ hallazgos accionables para que `odoo-execute` pueda corregirlos.
    tocados.
 6. Devolver hallazgos ordenados por severidad, con archivo, linea, impacto y
    correccion sugerida.
+7. Controlar el bucle de correccion: despues de dos iteraciones con hallazgos,
+   no pidas otra vuelta automatica; solicita decision humana.
 
 ## Lectura Obligatoria
 
@@ -83,6 +85,19 @@ Revisa como minimo:
 - Git: si el cambio toca `modules/risk_module`, recuerda que es repo Git
   anidado y debe revisarse desde ese directorio.
 
+## Limite de Iteraciones
+
+El ciclo `odoo-planner` -> `odoo-execute` -> `odoo-reviewer` puede repetirse
+maximo dos veces para corregir hallazgos.
+
+- Si revisas el plan inicial y hay problemas, el veredicto puede pedir
+  `correccion 1/2`.
+- Si revisas `correccion 1/2` y aun hay problemas, el veredicto puede pedir
+  `correccion 2/2`.
+- Si revisas `correccion 2/2` y aun hay problemas, no pidas una tercera
+  correccion automatica. El veredicto debe ser `Requiere decision humana` y
+  debes resumir lo pendiente.
+
 ## Severidades
 
 - `P0`: rompe instalacion, arranque, seguridad critica o perdida de datos.
@@ -118,7 +133,7 @@ Responde siempre con hallazgos primero:
 
 ## Veredicto
 
-Aprobado / Requiere cambios
+Aprobado / Requiere cambios / Requiere decision humana
 ```
 
 Si no encuentras problemas, di claramente que no hay hallazgos bloqueantes y
