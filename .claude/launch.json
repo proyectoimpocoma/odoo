@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "odoo",
+      "runtimeExecutable": "docker",
+      "runtimeArgs": ["compose", "logs", "-f", "odoo"],
+      "port": 8069
+    }
+  ]
+}
