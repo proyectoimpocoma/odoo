@@ -52,6 +52,7 @@ asset bundles y trampas en `docs/ai/theme_usage.md`.
 | Migrar de 18 a 19, RELAXNG, deprecateds | `migration_18_to_19.md` |
 | Traducciones, `_()`, `.po` | `i18n_guide.md` |
 | Tema, SCSS, asset bundles | `theme_usage.md` |
+| Crear o corregir iconos de módulos | `module_icons.md` |
 | Errores típicos, trampas, deprecateds | `anti_patterns.md` |
 
 ## Errores Más Disruptivos del Repo
@@ -59,12 +60,15 @@ asset bundles y trampas en `docs/ai/theme_usage.md`.
 Lista corta. La canónica y completa está en `docs/ai/anti_patterns.md`.
 
 - `module izi_data: not installable`: warning del entorno, ignorar.
-- `_sql_constraints is no longer supported`: warning v19, no mezclar con
-  cambios no relacionados en el mismo commit.
+- No usar `_sql_constraints`: en Odoo 19 el estándar del repo es
+  `models.Constraint` con atributo privado.
 - Sass `min()` con unidades mixtas: rompe compilación.
 - `t-attf-class` + `hasclass()`: no usar para heredar vistas QWeb.
 - `<group expand="0" string="Group By">` en search view: debe ser
   `<group name="group_by">`.
+- Icono de módulo que no aparece: no basta con
+  `static/description/icon.png`; el menú raíz debe tener `web_icon` y el
+  módulo debe actualizarse para poblar `web_icon_data`.
 
 ## Skills Cargadas
 

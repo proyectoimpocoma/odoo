@@ -37,6 +37,38 @@ tests/              focused module tests
 migrations/         versioned migration scripts
 ```
 
+## Module Icon
+
+- Todo módulo instalable con menú raíz debe tener
+  `static/description/icon.png`.
+- El icono final debe ser PNG `200 x 200`, `RGBA`, con fondo transparente y
+  contenido recortado con poco margen.
+- El menú raíz debe apuntar al icono con `web_icon`, por ejemplo:
+
+```xml
+<menuitem
+    id="menu_addon_root"
+    name="Addon Name"
+    web_icon="addon_name,static/description/icon.png"/>
+```
+
+- El campo `images` del manifest es para screenshots/material descriptivo; no
+  sustituye `web_icon`.
+- Reglas completas: `docs/ai/module_icons.md`.
+
+## ORM Standards
+
+- Define SQL constraints with `models.Constraint` attributes only. Do not add
+  `_sql_constraints` in new or modified Odoo 19 models.
+- Constraint attributes must be private, for example:
+
+```python
+_code_unique = models.Constraint(
+    "UNIQUE (code)",
+    "Ya existe un registro con este codigo.",
+)
+```
+
 ## Manifest Defaults
 
 Use `category: "Impocoma"` and `license: "LGPL-3"`.

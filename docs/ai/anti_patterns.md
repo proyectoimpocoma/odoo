@@ -8,8 +8,6 @@ este repositorio. Antes de cerrar un cambio, revisa si tocaste alguna de estas
 
 - `module izi_data: not installable`: warning del entorno, no relacionado con
   cambios nuevos. Ignorar.
-- `_sql_constraints is no longer supported`: warning de Odoo 19 en modelos
-  existentes. Convive con cambios no relacionados; no mezclar en el mismo commit.
 
 ## Reglas del theme (CSS / SCSS / QWeb)
 
@@ -27,6 +25,13 @@ este repositorio. Antes de cerrar un cambio, revisa si tocaste alguna de estas
 - **No hardcodear la paleta Impocoma** (naranja `#f77c00`, azul `#003b73`,
   texto `#121c2c`, líneas `#cbd5e0`, fondos suaves `#f5f7fa`). Usar
   `$imp-*` de `primary_variables.scss`.
+- **Icono de módulo con fondo horneado**: no guardar un icono con fondo blanco,
+  tarjeta, marco o mucho espacio vacío dentro del PNG. El final debe ser
+  `200 x 200`, `RGBA`, con esquinas transparentes y objeto grande.
+- **Icono que no aparece en Odoo**: `static/description/icon.png` no basta para
+  el launcher. El menú raíz necesita
+  `web_icon="addon_name,static/description/icon.png"` y luego actualizar el
+  módulo para poblar `web_icon_data`.
 
 ## Vistas XML (Odoo 19)
 
@@ -67,6 +72,19 @@ este repositorio. Antes de cerrar un cambio, revisa si tocaste alguna de estas
 
 ## ORM / Python (Odoo 19)
 
+- **No usar `_sql_constraints`**: Odoo 19 lo reporta como no soportado.
+  Declarar siempre constraints SQL con atributos privados
+  `models.Constraint`, por ejemplo:
+
+  ```python
+  _code_unique = models.Constraint(
+      "UNIQUE (code)",
+      "Ya existe un registro con este codigo.",
+  )
+  ```
+
+  El atributo debe empezar con `_`; Odoo crea el nombre SQL como
+  `<tabla>_<atributo_sin_guion_bajo>`.
 - **`@api.multi`**: deprecado desde v17. No usarlo.
 - **`read_group(...)`** → `formatted_read_group(...)` (público) o
   `_read_group(...)` (interno, nueva firma).

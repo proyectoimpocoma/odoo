@@ -31,6 +31,15 @@ $imp-success
 
 Do not hardcode the Impocoma orange, blue, text, line, or soft background colors in new modules.
 
+## Module Icons
+
+- Para iconos de módulos, usa la misma paleta de `primary_variables.scss`.
+- No generes iconos con fondo blanco o tarjeta interna: el PNG final debe tener
+  alfa real y esquinas transparentes.
+- El icono debe quedar grande dentro del canvas; recorta el espacio vacío antes
+  de guardarlo como `static/description/icon.png`.
+- Consulta `docs/ai/module_icons.md` para formato, `web_icon` y validación.
+
 ## Boundaries
 
 - Do not force global navbar colors from business modules.
