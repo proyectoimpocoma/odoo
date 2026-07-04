@@ -57,3 +57,5 @@ modules/*/.git/
 !scripts/docker-mac.ps1
 !scripts/docker-windows.ps1
 modules/
+
+.playwright-cli
