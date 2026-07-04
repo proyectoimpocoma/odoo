@@ -64,8 +64,7 @@ tener `web_icon`:
 Después de cambiar `web_icon` o `icon.png`, actualiza el módulo:
 
 ```bash
-docker compose exec -T odoo odoo -c /etc/odoo/odoo.conf -d mi_empresa -u addon_name --stop-after-init --no-http
-docker compose up -d odoo
+./scripts/docker.sh update addon_name
 ```
 
 ## Verificación Obligatoria

@@ -67,8 +67,11 @@ run_odoo_module_command() {
 
   echo "Ejecutando -${mode} ${modules} en la base ${DB_NAME}..."
 
+  compose up -d db
+  wait_for_database
+
   echo "Deteniendo Odoo para evitar escrituras concurrentes durante la actualizacion..."
-  compose stop odoo
+  compose stop odoo || true
 
   compose run --rm --no-deps odoo odoo -c "$ODOO_CONFIG" \
     -d "$DB_NAME" \
@@ -78,6 +81,12 @@ run_odoo_module_command() {
 
   echo "Levantando Odoo..."
   compose up -d odoo
+
+  if ! wait_for_odoo; then
+    if [[ "$exit_code" -eq 0 ]]; then
+      exit_code=1
+    fi
+  fi
 
   return "$exit_code"
 }
@@ -93,6 +102,26 @@ wait_for_database() {
 
   echo "Error: PostgreSQL no estuvo listo a tiempo." >&2
   exit 1
+}
+
+wait_for_odoo() {
+  local successful_checks=0
+
+  echo "Esperando a que Odoo responda..."
+  for _ in $(seq 1 60); do
+    if curl --fail --silent --output /dev/null --max-time 2 "http://127.0.0.1:8069/web/login"; then
+      successful_checks=$((successful_checks + 1))
+      if [[ "$successful_checks" -ge 5 ]]; then
+        return 0
+      fi
+    else
+      successful_checks=0
+    fi
+    sleep 2
+  done
+
+  echo "Error: Odoo no respondio en http://127.0.0.1:8069/web/login." >&2
+  return 1
 }
 
 init_environment() {

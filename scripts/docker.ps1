@@ -75,10 +75,31 @@ function Invoke-OdooModuleCommand {
     )
 
     Write-Host "Ejecutando -$Mode $Modules en la base $DbName..."
-    Compose exec -T odoo odoo -c $OdooConfig -d $DbName "-$Mode" $Modules --stop-after-init
 
-    Write-Host "Reiniciando Odoo..."
-    Compose restart odoo
+    Compose up -d db
+    Wait-Database
+
+    Write-Host "Deteniendo Odoo para evitar escrituras concurrentes durante la actualizacion..."
+    Compose stop odoo
+
+    $ModuleExitCode = 0
+    Compose run --rm --no-deps odoo odoo -c $OdooConfig -d $DbName "-$Mode" $Modules --stop-after-init --no-http
+    if ($LASTEXITCODE -ne 0) {
+        $ModuleExitCode = $LASTEXITCODE
+    }
+
+    Write-Host "Levantando Odoo..."
+    Compose up -d odoo
+
+    if (-not (Wait-Odoo)) {
+        if ($ModuleExitCode -eq 0) {
+            $ModuleExitCode = 1
+        }
+    }
+
+    if ($ModuleExitCode -ne 0) {
+        exit $ModuleExitCode
+    }
 }
 
 function Wait-Database {
@@ -92,6 +113,31 @@ function Wait-Database {
     }
 
     throw "PostgreSQL no estuvo listo a tiempo."
+}
+
+function Wait-Odoo {
+    $SuccessfulChecks = 0
+
+    Write-Host "Esperando a que Odoo responda..."
+    for ($Attempt = 1; $Attempt -le 60; $Attempt++) {
+        try {
+            Invoke-WebRequest -Uri "http://127.0.0.1:8069/web/login" -UseBasicParsing -TimeoutSec 2 *> $null
+            $SuccessfulChecks++
+            if ($SuccessfulChecks -ge 5) {
+                return $true
+            }
+        }
+        catch {
+            $SuccessfulChecks = 0
+        }
+
+        if ($Attempt -lt 60) {
+            Start-Sleep -Seconds 2
+        }
+    }
+
+    [Console]::Error.WriteLine("Error: Odoo no respondio en http://127.0.0.1:8069/web/login.")
+    return $false
 }
 
 function Initialize-Environment {

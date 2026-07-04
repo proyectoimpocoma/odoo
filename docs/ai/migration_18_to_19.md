@@ -32,7 +32,7 @@ PY
 Runtime check (the only real proof — RNG + ORM + assets):
 
 ```bash
-docker compose exec -T odoo odoo -c /etc/odoo/odoo.conf -d mi_empresa -i ADDON --stop-after-init --no-http
+./scripts/docker.sh install ADDON
 docker compose logs --tail=160 odoo
 ```
 
@@ -165,4 +165,4 @@ Check for and replace these (rare in small addons, but breaking):
 - [ ] No `t-esc` / `t-raw`; no inline `<script>` or CDN assets in public pages.
 - [ ] No `type='json'`; no stray `website=True`; public POST uses `csrf=True`.
 - [ ] No `name_get`, `read_group`, `_flush_search`, `._cr/._context/._uid`, old registry import.
-- [ ] `-i ADDON --stop-after-init` installs clean; logs show no `RELAXNGV` warnings.
+- [ ] `./scripts/docker.sh install ADDON` installs clean; logs show no `RELAXNGV` warnings.

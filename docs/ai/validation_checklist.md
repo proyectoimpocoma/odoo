@@ -50,8 +50,7 @@ find modules/addon_name -name "__pycache__" -type d -print
 When runtime validation is needed:
 
 ```bash
-docker compose exec -T odoo odoo -c /etc/odoo/odoo.conf -d mi_empresa -u addon_name --stop-after-init --no-http
-docker compose restart odoo
+./scripts/docker.sh update addon_name
 ```
 
 Check logs:

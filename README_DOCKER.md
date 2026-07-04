@@ -96,12 +96,7 @@ http://127.0.0.1:8069
 Con los contenedores arriba:
 
 ```bash
-docker compose exec odoo odoo -c /etc/odoo/odoo.conf \
-  -d mi_empresa \
-  -i theme_impocoma,risk_module \
-  --stop-after-init
-
-docker compose restart odoo
+./scripts/docker.sh install theme_impocoma,risk_module
 ```
 
 ## Actualizar modulos durante desarrollo
@@ -110,23 +105,13 @@ Usa este comando despues de cambios en modelos, vistas XML, seguridad, data,
 assets o manifests:
 
 ```bash
-docker compose exec odoo odoo -c /etc/odoo/odoo.conf \
-  -d mi_empresa \
-  -u theme_impocoma,risk_module \
-  --stop-after-init
-
-docker compose restart odoo
+./scripts/docker.sh update theme_impocoma,risk_module
 ```
 
 Para actualizar solo `risk_module`:
 
 ```bash
-docker compose exec odoo odoo -c /etc/odoo/odoo.conf \
-  -d mi_empresa \
-  -u risk_module \
-  --stop-after-init
-
-docker compose restart odoo
+./scripts/docker.sh update risk_module
 ```
 
 ## Flujo de desarrollo
