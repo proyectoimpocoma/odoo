@@ -1,0 +1,383 @@
+{
+  "page_size": [
+    595.2755905511812,
+    841.8897637795277
+  ],
+  "signers": [
+    {
+      "role": "Signatario 1",
+      "name": "Ana Firmante",
+      "email": "ana@example.com"
+    },
+    {
+      "role": "Cliente",
+      "name": "Carlos Cliente",
+      "email": "carlos@example.com"
+    },
+    {
+      "role": "Empleado",
+      "name": "Elena Empleada",
+      "email": "elena@example.com"
+    }
+  ],
+  "field_types": [
+    "signature",
+    "initial",
+    "name",
+    "email",
+    "phone",
+    "company",
+    "text",
+    "multiline",
+    "checkbox",
+    "radio",
+    "selection",
+    "date",
+    "strikethrough",
+    "stamp"
+  ],
+  "layout_by_role": {
+    "Signatario 1": [
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.1734,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "signature",
+        "label": "Signature"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.1734,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "initial",
+        "label": "Initials"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.2891,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "name",
+        "label": "Name"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.2891,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "email",
+        "label": "Email"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.4048,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "phone",
+        "label": "Phone"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.4048,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "company",
+        "label": "Company"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.5205,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "text",
+        "label": "Text"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.5205,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "multiline",
+        "label": "Multiline Text"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.6362,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "checkbox",
+        "label": "Checkbox"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.6362,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "radio",
+        "label": "Option"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.752,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "selection",
+        "label": "Selection"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.752,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "date",
+        "label": "Date"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.8677,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "strikethrough",
+        "label": "Strikethrough"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.8677,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "stamp",
+        "label": "Stamp"
+      }
+    ],
+    "Cliente": [
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.1734,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "signature",
+        "label": "Signature"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.1734,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "initial",
+        "label": "Initials"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.2891,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "name",
+        "label": "Name"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.2891,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "email",
+        "label": "Email"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.4048,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "phone",
+        "label": "Phone"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.4048,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "company",
+        "label": "Company"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.5205,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "text",
+        "label": "Text"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.5205,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "multiline",
+        "label": "Multiline Text"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.6362,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "checkbox",
+        "label": "Checkbox"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.6362,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "radio",
+        "label": "Option"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.752,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "selection",
+        "label": "Selection"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.752,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "date",
+        "label": "Date"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.8677,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "strikethrough",
+        "label": "Strikethrough"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.8677,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "stamp",
+        "label": "Stamp"
+      }
+    ],
+    "Empleado": [
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.1734,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "signature",
+        "label": "Signature"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.1734,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "initial",
+        "label": "Initials"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.2891,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "name",
+        "label": "Name"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.2891,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "email",
+        "label": "Email"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.4048,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "phone",
+        "label": "Phone"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.4048,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "company",
+        "label": "Company"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.5205,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "text",
+        "label": "Text"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.5205,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "multiline",
+        "label": "Multiline Text"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.6362,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "checkbox",
+        "label": "Checkbox"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.6362,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "radio",
+        "label": "Option"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.752,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "selection",
+        "label": "Selection"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.752,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "date",
+        "label": "Date"
+      },
+      {
+        "pos_x": 0.0672,
+        "pos_y": 0.8677,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "strikethrough",
+        "label": "Strikethrough"
+      },
+      {
+        "pos_x": 0.5134,
+        "pos_y": 0.8677,
+        "width": 0.4194,
+        "height": 0.0801,
+        "field_type": "stamp",
+        "label": "Stamp"
+      }
+    ]
+  }
+}
