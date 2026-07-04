@@ -63,15 +63,23 @@ compose() {
 run_odoo_module_command() {
   local mode="$1"
   local modules="$2"
+  local exit_code=0
 
   echo "Ejecutando -${mode} ${modules} en la base ${DB_NAME}..."
-  compose exec -T odoo odoo -c "$ODOO_CONFIG" \
+
+  echo "Deteniendo Odoo para evitar escrituras concurrentes durante la actualizacion..."
+  compose stop odoo
+
+  compose run --rm --no-deps odoo odoo -c "$ODOO_CONFIG" \
     -d "$DB_NAME" \
     "-${mode}" "$modules" \
-    --stop-after-init
+    --stop-after-init \
+    --no-http || exit_code=$?
 
-  echo "Reiniciando Odoo..."
-  compose restart odoo
+  echo "Levantando Odoo..."
+  compose up -d odoo
+
+  return "$exit_code"
 }
 
 wait_for_database() {

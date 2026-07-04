@@ -62,7 +62,8 @@ db_user = odoo
 db_password = odoo
 db_name = mi_empresa
 data_dir = /var/lib/odoo
-xmlrpc_port = 8069
+http_interface = 0.0.0.0
+http_port = 8069
 ```
 
 No reutilices `config/odoo.config` dentro de Docker: ese archivo tiene rutas
