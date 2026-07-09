@@ -72,9 +72,11 @@ este repositorio. Antes de cerrar un cambio, revisa si tocaste alguna de estas
 
 ## ORM / Python (Odoo 19)
 
-- **No usar `_sql_constraints`**: Odoo 19 lo reporta como no soportado.
-  Declarar siempre constraints SQL con atributos privados
-  `models.Constraint`, por ejemplo:
+- **No usar `_sql_constraints`**: Odoo 19 lo reporta como no soportado con
+  el warning `Model attribute '_sql_constraints' is no longer supported,
+  please define models.Constraint on the model.` Para evitarlo, usar siempre
+  la forma recomendada del repo: constraints SQL declarados con atributos
+  privados `models.Constraint`, por ejemplo:
 
   ```python
   _code_unique = models.Constraint(
