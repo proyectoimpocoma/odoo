@@ -26,16 +26,25 @@ instala el esquema ni los módulos en una base nueva.
 
 ### `modules/risk_module`
 
-Módulo de negocio principal: habilitación de terceros (formulario público,
-portal, backend, SharePoint, OTP, firmas, reportes). Estructura y
-responsabilidades detalladas en `README.md`. Antes de tocar un paso del
-formulario, revisa juntos:
+Core de habilitación de terceros: dominio, backend, documentos, firmas,
+reportes y contratos neutrales. No debe recuperar controladores, QWeb ni assets
+frontend del portal.
 
-- `controllers/risk_submission_controller.py`
-- `controllers/risk_submission_form_schema.py`
-- `views/website/website_risk_submission_step_*.xml`
-- `static/src/js/risk_submission_*.js`
-- `tests/test_risk_submission.py`
+### `modules/risk_portal`
+
+Canal público/autenticado de Risk: formulario por pasos, signup, portal,
+carga/descarga documental, QWeb y assets frontend. Antes de tocar un paso,
+revisar juntos controladores, esquema, template, JavaScript y pruebas del addon.
+
+### `modules/sharepoint_connector`
+
+Conector técnico reutilizable para Microsoft Graph y SharePoint. No depende de
+Risk. Su servicio público es `sharepoint.connector.service`.
+
+### `modules/risk_sharepoint`
+
+Addon puente entre `risk_module` y `sharepoint_connector`: rutas documentales,
+cron, configuración, reintentos y restauración local de archivos remotos.
 
 ### `modules/theme_impocoma`
 
@@ -47,6 +56,7 @@ asset bundles y trampas en `docs/ai/theme_usage.md`.
 | Tarea | Guía |
 |---|---|
 | Crear o extender un módulo | `module_blueprint.md` |
+| Modularizar, factorizar o dividir addons | `modularity_and_refactoring.md` |
 | Grupos, ACL, record rules | `permissions_policy.md` |
 | Antes de cerrar un cambio (checks) | `validation_checklist.md` |
 | Migrar de 18 a 19, RELAXNG, deprecateds | `migration_18_to_19.md` |

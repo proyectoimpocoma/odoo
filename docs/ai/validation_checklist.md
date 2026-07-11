@@ -4,6 +4,17 @@ Run the checks that match the touched files before finishing.
 
 ## Static Checks
 
+Revisar tamaño y responsabilidades:
+
+```bash
+find modules/addon_name -type f \
+  \( -name '*.py' -o -name '*.js' -o -name '*.scss' -o -name '*.xml' \) \
+  -exec wc -l {} + | sort -nr
+```
+
+Todo archivo manual por encima de 400 líneas debe factorizarse o quedar con
+justificación temporal y un plan explícito de extracción.
+
 Compile Python:
 
 ```bash

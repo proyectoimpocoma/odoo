@@ -109,7 +109,11 @@ For public or multi-step forms:
 
 ## Size And Split Rules
 
+- Objetivo: ningún archivo mantenido manualmente debe superar 400 líneas sin
+  justificación temporal y plan de extracción.
 - Keep model files focused by responsibility.
 - Prefer a separate `_inherit = "model.name"` file for workflow, formatting, external sync, or document logic when a model grows.
 - Move reusable controller form schemas, session helpers, mappers, and validators out of large route files.
 - Avoid inline CSS or JavaScript inside XML except for tiny prototypes.
+- Antes de dividir modelos, canales o integraciones entre addons, seguir
+  `docs/ai/modularity_and_refactoring.md`.

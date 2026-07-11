@@ -72,6 +72,11 @@ este repositorio. Antes de cerrar un cambio, revisa si tocaste alguna de estas
 
 ## ORM / Python (Odoo 19)
 
+- **Archivos “Dios” de más de 400 líneas** mezclando workflow, HTTP,
+  integración, validación y presentación: factorizar por responsabilidad según
+  `docs/ai/modularity_and_refactoring.md`. No esconder el exceso minificando o
+  acumulando helpers sin dueño claro.
+
 - **No usar `_sql_constraints`**: Odoo 19 lo reporta como no soportado con
   el warning `Model attribute '_sql_constraints' is no longer supported,
   please define models.Constraint on the model.` Para evitarlo, usar siempre
