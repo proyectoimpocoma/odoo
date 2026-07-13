@@ -46,6 +46,12 @@ Risk. Su servicio público es `sharepoint.connector.service`.
 Addon puente entre `risk_module` y `sharepoint_connector`: rutas documentales,
 cron, configuración, reintentos y restauración local de archivos remotos.
 
+### `modules/risk_sign`
+
+Addon puente opcional entre `risk_module` y `easy_sign`. Contiene plantillas,
+envío, sincronización de estados e importación del PDF firmado. La firma
+manuscrita y OTP del formulario siguen siendo responsabilidad de Risk.
+
 ### `modules/theme_impocoma`
 
 Tema corporativo (paleta, login, website, App Dashboard). Variables SCSS,

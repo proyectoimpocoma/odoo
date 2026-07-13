@@ -10,7 +10,11 @@ Entorno local de Odoo 19 para desarrollo de modulos personalizados de Impocoma. 
 
 ## Contenido
 
-- `risk_module`: modulo principal para habilitacion de terceros, gestion documental, revision de riesgo, portal y SharePoint.
+- `risk_module`: nucleo para habilitacion, gestion documental y revision de riesgo.
+- `risk_portal`: experiencia website y portal opcional para Risk.
+- `risk_sign`: puente opcional entre Risk y el proveedor documental iSign.
+- `risk_sharepoint`: puente opcional entre Risk y SharePoint.
+- `sharepoint_connector`: cliente tecnico reutilizable de Microsoft Graph.
 - `theme_impocoma`: tema corporativo para login, website, estilos base y App Dashboard (launcher de apps del backend).
 - `docker-compose.yml`: servicios `db` y `odoo`.
 - `Dockerfile.odoo`: imagen Odoo con dependencias Python adicionales.
