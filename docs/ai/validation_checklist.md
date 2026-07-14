@@ -45,6 +45,33 @@ Check for generated Python cache files:
 find modules/addon_name -name "__pycache__" -type d -print
 ```
 
+## Multilanguage Checks
+
+When the addon has translated UI, mail, reports or public pages, follow
+`docs/ai/i18n_guide.md` and verify all four layers: source, catalogs, database
+and rendered output.
+
+- Runtime source literals are English; Spanish exists in `msgstr` values.
+- The current POT has no Spanish `msgid` terms.
+- `es.po` and `es_CO.po` have no missing or fuzzy module-owned entries.
+- Placeholders and HTML/QWeb structure match between `msgid` and `msgstr`.
+- Existing `noupdate="1"` translated records have a safe versioned migration.
+- Standalone pages apply the effective language and emit the matching HTML
+  `lang` attribute.
+- Runtime tests compare menus, fields and stored translated values under
+  `en_US` and `es_CO`.
+
+```bash
+msgfmt --check --check-format \
+  modules/addon_name/i18n/es.po -o /dev/null
+msgfmt --check --check-format \
+  modules/addon_name/i18n/es_CO.po -o /dev/null
+```
+
+If an existing database keeps an old translation after `-u`, import the
+corrected PO deliberately with `odoo i18n import -w`; a clean file alone is not
+runtime proof.
+
 ## Manifest Checks
 
 - Every XML file needed by Odoo is listed in `data`.
