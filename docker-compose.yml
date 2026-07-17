@@ -23,8 +23,6 @@ services:
       dockerfile: Dockerfile.odoo
     container_name: odoo19
     restart: unless-stopped
-    environment:
-      MICROSOFT_GRAPH_TOKEN_ENCRYPTION_KEY: ${MICROSOFT_GRAPH_TOKEN_ENCRYPTION_KEY}
     depends_on:
       db:
         condition: service_healthy
