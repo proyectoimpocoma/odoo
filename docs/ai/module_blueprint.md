@@ -8,7 +8,7 @@ Use this blueprint before creating or extending modules in this repository.
 - Use lowercase `snake_case` addon names without hyphens.
 - Name new Microsoft integration addons with the
   `microsoft_<functionality>` prefix. Do not add the `impocoma_` prefix.
-  Examples: `microsoft_sso`, `microsoft_graph_mail`, and
+  Examples: `microsoft_sso`, `microsoft_mail`, and
   `microsoft_calendar`.
 - Use dotted business model names, for example `fleet.onboarding.request`.
 - Do not rename an existing model `_name` without a migration plan.
