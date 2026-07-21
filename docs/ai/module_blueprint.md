@@ -6,6 +6,10 @@ Use this blueprint before creating or extending modules in this repository.
 
 - Create addons under `modules/`.
 - Use lowercase `snake_case` addon names without hyphens.
+- Name new Microsoft integration addons with the
+  `microsoft_<functionality>` prefix. Do not add the `impocoma_` prefix.
+  Examples: `microsoft_sso`, `microsoft_graph_mail`, and
+  `microsoft_calendar`.
 - Use dotted business model names, for example `fleet.onboarding.request`.
 - Do not rename an existing model `_name` without a migration plan.
 - When creating Odoo models, always set a clear `_description` that identifies the business object and module context. Audit log entries use model descriptions, so avoid generic labels like `Record`, `Request`, or `Line`.
